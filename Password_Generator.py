@@ -18,7 +18,7 @@ def contains_symbols(password: str) -> bool:
     return False
 
 
-def generate_password(lenght: int, symbols: bool, uppercase: bool) -> str:
+def generate_password(length: int, symbols: bool, uppercase: bool) -> str:
     combination: str = string.ascii_lowercase + string.digits
 
     if symbols:
@@ -27,16 +27,16 @@ def generate_password(lenght: int, symbols: bool, uppercase: bool) -> str:
     if uppercase:
         combination += string.ascii_uppercase
 
-    combination_lenght: int = len(combination)
+    combination_length: int = len(combination)
     new_password: str = ''
 
-    for _ in range(lenght):
-        new_password += combination[secrets.randbelow(combination_lenght)]
+    for _ in range(length):
+        new_password += combination[secrets.randbelow(combination_length)]
 
     return new_password
 
 
 if __name__ == '__main__':
     for i in range(1, 6):
-        new_pass = generate_password(lenght=10, symbols=True, uppercase=True)
+        new_pass = generate_password(length=10, symbols=True, uppercase=True)
         print(f'pass number {i} is : {new_pass}')
